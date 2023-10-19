@@ -1,0 +1,85 @@
+To fulfill the requirements mentioned, we can create several classes for the cricket game. Here's an outline of the necessary classes:
+1. Player Class
+The Player class represents a player in the game. Each player has a name, role (batsman or bowler), and relevant statistics such as runs scored, wickets taken, etc.
+
+public class Player {
+    private String name;
+    private String role;
+    private int runsScored;
+    private int wicketsTaken;
+    // Other relevant attributes and methods
+}
+2. Team Class
+The Team class represents a team in the cricket game. It contains a list of Player objects representing the players in the team.
+
+import java.util.List;
+
+public class Team {
+    private String name;
+    private List<Player> players;
+    // Other relevant attributes and methods
+}
+3. CricketGame Class
+The CricketGame class represents a cricket game. It has two Team objects representing the two teams playing in the game. The CricketGame class will also contain the match controller logic.
+
+public class CricketGame {
+    private Team team1;
+    private Team team2;
+    // Other relevant attributes and methods
+    
+    public void playGame() {
+        // Logic to control the sequence of random function calls and print the results
+    }
+}
+4. Scoreboard Class
+The Scoreboard class is responsible for printing the scoreboard after every match. It will contain information about the overs completed, the batting team, the current batsman, and the runs scored.
+
+public class Scoreboard {
+    private int oversDone;
+    private Team battingTeam;
+    private Player currentBatsman;
+    private int runsOnCurrentBall;
+    
+    public void printScoreboard() {
+        // Logic to print the scoreboard
+    }
+}
+5. RandomFunctionHelper Class
+The RandomFunctionHelper class contains a method to generate random runs or wickets for each ball.
+
+public class RandomFunctionHelper {
+    public static String getRandomOutcome() {
+        // Logic to generate random runs or wickets
+    }
+}
+6. DatabaseHelper Class (using JDBC)
+The DatabaseHelper class handles the interaction with the database to store and retrieve relevant information about the matches and players.
+
+public class DatabaseHelper {
+    // Logic to interact with the database using JDBC
+}
+7. MatchControllerAPI Class (using Spring)
+The MatchControllerAPI class uses Spring framework to expose APIs for starting a match or series, fetching player details, and fetching match details.
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MatchControllerAPI {
+    @GetMapping("/start-match/{overs}/{matches}")
+    public String startMatch(@PathVariable int overs, @PathVariable int matches) {
+        // Logic to start a match or series for a given overs and matches
+    }
+    
+    @GetMapping("/player-details/{matchId}/{playerId}")
+    public String getPlayerDetails(@PathVariable int matchId, @PathVariable int playerId) {
+        // Logic to fetch the details of a player in a given match
+    }
+    
+    @GetMapping("/match-details/{matchId}/{seriesId}")
+    public String getMatchDetails(@PathVariable int matchId, @PathVariable int seriesId) {
+        // Logic to fetch the details of a given match and series
+    }
+}
+Please note that this is a basic outline of the classes and methods required for the given requirements. You would need to implement the logic inside each class to fulfill the functionality.
